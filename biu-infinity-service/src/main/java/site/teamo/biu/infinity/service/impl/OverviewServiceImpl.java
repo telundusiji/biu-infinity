@@ -128,7 +128,7 @@ public class OverviewServiceImpl implements OverviewService {
             JSONObject yarnMetrics = JSON.parseObject(BiuHttpClient.getClient().get(clusterMetricsUrl)).getJSONArray("beans").getJSONObject(0);
 
             String queueMetricsUrl = String.format(InfinityConstant.JmxKey.JMX_SERVER_URL_FORMAT, getActiveRMUri(rmUris), InfinityConstant.JmxKey.QUEUE_METRICS);
-            JSONObject queueMetrics = JSON.parseObject(BiuHttpClient.getClient().get(queueMetricsUrl));
+            JSONObject queueMetrics = JSON.parseObject(BiuHttpClient.getClient().get(queueMetricsUrl)).getJSONArray("beans").getJSONObject(0);
 
             YarnSummary yarnSummary = YarnSummary.builder()
                     .liveNodeManagerNums(yarnMetrics.getInteger("NumActiveNMs"))
@@ -140,7 +140,7 @@ public class OverviewServiceImpl implements OverviewService {
                     .completedApps(queueMetrics.getInteger("AppsCompleted"))
                     .killedApps(queueMetrics.getInteger("AppsKilled"))
                     .failedApps(queueMetrics.getInteger("AppsFailed"))
-                    .allocatedMem(Long.parseLong(queueMetrics.getInteger("AllocatedMB").toString()))
+                    .allocatedMem(queueMetrics.getLong("AllocatedMB"))
                     .allocatedCores(queueMetrics.getInteger("AllocatedVCores"))
                     .allocatedContainers(queueMetrics.getInteger("AllocatedContainers"))
                     .availableMem(queueMetrics.getLong("AvailableMB"))
@@ -208,7 +208,7 @@ public class OverviewServiceImpl implements OverviewService {
      * @return 活跃节点的NameNode uri
      * @throws IOException
      */
-    private String getActiveNNUri(List<String> nnUris) throws IOException {
+    private String getActiveNNUri(List<String> nnUris) {
         String activeUri = nnUris.stream()
                 .filter(x -> {
                     String fsNameSystemUrl = String.format(InfinityConstant.JmxKey.JMX_SERVER_URL_FORMAT, x, InfinityConstant.JmxKey.FS_NAME_SYSTEM);
@@ -233,8 +233,6 @@ public class OverviewServiceImpl implements OverviewService {
         return activeUri;
     }
 
-    //获取active resource manager uri
-
     /**
      * 获取active的ResourceManager uri
      *
@@ -242,7 +240,7 @@ public class OverviewServiceImpl implements OverviewService {
      * @return 活跃节点的ResourceManager uri
      * @throws IOException
      */
-    private String getActiveRMUri(List<String> rmUris) throws IOException {
+    private String getActiveRMUri(List<String> rmUris) {
 
         String activeUri = rmUris.stream()
                 .filter(x -> {

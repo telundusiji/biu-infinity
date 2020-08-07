@@ -21,21 +21,27 @@ public class OverviewSchedule {
     @Autowired
     private OverviewService overviewService;
 
-    @Scheduled(cron = "0/5 * * * * ?")
+    /**
+     * 刷新hdfs的概览信息到数据库
+     */
+    @Scheduled(cron = "0 * * * * ?")
     public void hdfsSummary() {
-        LOGGER.info("刷新hdfs信息");
         overviewService.refreshHdfsSummary();
     }
 
-    @Scheduled(cron = "0/5 * * * * ?")
+    /**
+     * 刷新yarn的概览信息到数据库
+     */
+    @Scheduled(cron = "0 * * * * ?")
     public void yarnSummary() {
-        LOGGER.info("刷新yarn信息");
         overviewService.refreshYarnSummary();
     }
 
-    @Scheduled(cron = "0/5 * * * * ?")
+    /**
+     * 刷新yarn queue的信息到数据库
+     */
+    @Scheduled(cron = "0 * * * * ?")
     public void queueMetrics() {
-        LOGGER.info("刷新queue信息");
         overviewService.refreshQueueMetrics();
     }
 
