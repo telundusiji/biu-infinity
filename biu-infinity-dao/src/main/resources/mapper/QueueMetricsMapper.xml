@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="site.teamo.biu.infinity.dao.QueueMetricsMapper" >
+  <resultMap id="BaseResultMap" type="site.teamo.biu.infinity.entity.QueueMetrics" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="queue_name" property="queueName" jdbcType="VARCHAR" />
+    <result column="app_pending" property="appPending" jdbcType="INTEGER" />
+    <result column="app_running" property="appRunning" jdbcType="INTEGER" />
+    <result column="allocated_mb" property="allocatedMb" jdbcType="INTEGER" />
+    <result column="available_mb" property="availableMb" jdbcType="INTEGER" />
+    <result column="reserved_mb" property="reservedMb" jdbcType="INTEGER" />
+    <result column="pending_mb" property="pendingMb" jdbcType="INTEGER" />
+    <result column="allocated_containers" property="allocatedContainers" jdbcType="INTEGER" />
+    <result column="pending_containers" property="pendingContainers" jdbcType="INTEGER" />
+    <result column="active_users" property="activeUsers" jdbcType="INTEGER" />
+    <result column="metrics_time" property="metricsTime" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

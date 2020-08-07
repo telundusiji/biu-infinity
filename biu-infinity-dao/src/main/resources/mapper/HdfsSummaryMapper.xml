@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="site.teamo.biu.infinity.dao.HdfsSummaryMapper" >
+  <resultMap id="BaseResultMap" type="site.teamo.biu.infinity.entity.HdfsSummary" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="total" property="total" jdbcType="BIGINT" />
+    <result column="dfs_used" property="dfsUsed" jdbcType="BIGINT" />
+    <result column="percent_used" property="percentUsed" jdbcType="DOUBLE" />
+    <result column="dfs_free" property="dfsFree" jdbcType="BIGINT" />
+    <result column="non_dfs_used" property="nonDfsUsed" jdbcType="BIGINT" />
+    <result column="total_blocks" property="totalBlocks" jdbcType="BIGINT" />
+    <result column="total_files" property="totalFiles" jdbcType="BIGINT" />
+    <result column="missing_blocks" property="missingBlocks" jdbcType="BIGINT" />
+    <result column="live_data_node_nums" property="liveDataNodeNums" jdbcType="INTEGER" />
+    <result column="dead_data_node_nums" property="deadDataNodeNums" jdbcType="INTEGER" />
+    <result column="volume_failures_total" property="volumeFailuresTotal" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

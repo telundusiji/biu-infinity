@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/infinity?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+
+infinity:
+  hadoop:
+    nn:
+      uri: 192.168.50.100:50070
+    rm:
+      uri: 192.168.50.100:8088
