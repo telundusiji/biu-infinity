@@ -103,7 +103,7 @@ public class OverviewServiceImpl implements OverviewService {
                     .dfsFree(nameNodeInfo.getLong("Free"))
                     .nonDfsUsed(nameNodeInfo.getLong("NonDfsUsedSpace"))
                     .totalBlocks(nameNodeInfo.getLong("TotalBlocks"))
-                    .totalFiles(nameNodeInfo.getLong("TotalFiles"))
+                    .totalFiles(nameNodeInfo.getLong("TotalFiles")==null?fsNameSystemState.getLong("FilesTotal"):nameNodeInfo.getLong("TotalFiles"))
                     .missingBlocks(nameNodeInfo.getLong("NumberOfMissingBlocks"))
                     .liveDataNodeNums(fsNameSystemState.getInteger("NumLiveDataNodes"))
                     .deadDataNodeNums(fsNameSystemState.getInteger("NumDeadDataNodes"))
@@ -198,6 +198,16 @@ public class OverviewServiceImpl implements OverviewService {
             LOGGER.error("实时yarn队列信息获取失败", e);
             return queueMetricsList;
         }
+    }
+
+    @Override
+    public List<HdfsSummary> findAllHdfsSummary() {
+        return hdfsSummaryMapper.selectAll();
+    }
+
+    @Override
+    public List<YarnSummary> findAllYarnSummary() {
+        return yarnSummaryMapper.selectAll();
     }
 
 

@@ -24,4 +24,8 @@ public interface OverviewService {
 
     List<QueueMetrics> realTimeQueueMetrics();
 
+    List<HdfsSummary> findAllHdfsSummary();
+
+    List<YarnSummary> findAllYarnSummary();
+
 }

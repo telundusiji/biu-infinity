@@ -24,7 +24,7 @@ public class OverviewSchedule {
     /**
      * 刷新hdfs的概览信息到数据库
      */
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void hdfsSummary() {
         overviewService.refreshHdfsSummary();
     }
@@ -32,7 +32,7 @@ public class OverviewSchedule {
     /**
      * 刷新yarn的概览信息到数据库
      */
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void yarnSummary() {
         overviewService.refreshYarnSummary();
     }
@@ -40,7 +40,7 @@ public class OverviewSchedule {
     /**
      * 刷新yarn queue的信息到数据库
      */
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void queueMetrics() {
         overviewService.refreshQueueMetrics();
     }
