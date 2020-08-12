@@ -3,6 +3,7 @@ import Adapter from 'axios-mock-adapter'
 import { get } from 'lodash'
 import util from '@/libs/util'
 import { errorLog, errorCreate } from './tools'
+import da from "element-ui/src/locale/lang/da";
 
 /**
  * @description 创建请求实例
@@ -32,8 +33,12 @@ function createService () {
         return dataAxios
       } else {
         // 有 code 代表这是一个后端接口 可以进行进一步的判断
+        console.log(code)
         switch (code) {
           case 0:
+            return dataAxios.data
+          case 200:
+            console.log(dataAxios.data)
             // [ 示例 ] code === 0 代表没有错误
             return dataAxios.data
           case 'xxx':

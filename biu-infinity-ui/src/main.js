@@ -15,6 +15,18 @@ import { frameInRoutes } from '@/router/routes'
 // 核心插件
 Vue.use(d2Admin)
 
+//编辑器
+import { codemirror } from 'vue-codemirror'
+
+import 'codemirror/lib/codemirror.css'
+
+Vue.use(codemirror)
+
+
+//v-chart
+import VCharts from 'v-charts'
+Vue.use(VCharts)
+
 new Vue({
   router,
   store,

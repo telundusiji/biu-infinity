@@ -31,7 +31,7 @@ export default {
   },
   // 注册的主题
   theme: {
-    list: [
+     list: [
       {
         title: 'd2admin 经典',
         name: 'd2',

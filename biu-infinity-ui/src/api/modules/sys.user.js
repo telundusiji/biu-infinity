@@ -16,6 +16,7 @@ export default ({ service, request, serviceForMock, requestForMock, mock, faker,
     mock
       .onAny('/login')
       .reply(config => {
+        console.log(config.data)
         const user = find(users, tools.parse(config.data))
         return user
           ? tools.responseSuccess(assign({}, user, { token: faker.random.uuid() }))

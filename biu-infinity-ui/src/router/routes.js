@@ -21,34 +21,6 @@ const frameIn = [
         },
         component: _import('system/index')
       },
-      // 演示页面
-      {
-        path: 'page1',
-        name: 'page1',
-        meta: {
-          title: '页面 1',
-          auth: true
-        },
-        component: _import('demo/page1')
-      },
-      {
-        path: 'page2',
-        name: 'page2',
-        meta: {
-          title: '页面 2',
-          auth: true
-        },
-        component: _import('demo/page2')
-      },
-      {
-        path: 'page3',
-        name: 'page3',
-        meta: {
-          title: '页面 3',
-          auth: true
-        },
-        component: _import('demo/page3')
-      },
       // 系统 前端日志
       {
         path: 'log',
@@ -72,6 +44,42 @@ const frameIn = [
         name: 'redirect',
         hidden: true,
         component: _import('system/function/redirect')
+      },
+      {
+        path: 'storage',
+        name: 'storage',
+        component: _import('overview/storage'),
+        meta: {
+          auth: true,
+          title: '存储概览'
+        }
+      },
+      {
+        path: 'calculation',
+        name: 'calculation',
+        component: _import('overview/calculation'),
+        meta: {
+          auth: true,
+          title: '计算概览'
+        }
+      },
+      {
+        path: 'monitoring',
+        name: 'monitoring',
+        component: _import('overview/monitoring'),
+        meta: {
+          auth: true,
+          title: '集群监控'
+        }
+      },
+      {
+        path: 'query',
+        name: 'query',
+        component: _import('query'),
+        meta: {
+          auth: true,
+          title: '数据查询'
+        }
       }
     ]
   }
