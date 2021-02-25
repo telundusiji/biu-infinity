@@ -29,7 +29,7 @@ public class HdfsInformationController {
     @ApiOperation(value = "存储概览", notes = "存储概览")
     @GetMapping("/storage")
     public BiuJSONResult storage() {
-        return BiuJSONResult.ok(hadoopInformationService.realTimeHdfsSummary());
+        return BiuJSONResult.ok(hadoopInformationService.realTimeHdfsSummary(false));
     }
 
     @ApiOperation(value = "存储图表", notes = "存储图表")

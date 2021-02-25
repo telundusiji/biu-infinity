@@ -25,7 +25,7 @@ public class YarnInformationController {
     @ApiOperation(value = "计算概览", notes = "计算概览")
     @GetMapping("/calculation")
     public BiuJSONResult calculation() {
-        return BiuJSONResult.ok(hadoopInformationService.realTimeYarnSummary());
+        return BiuJSONResult.ok(hadoopInformationService.realTimeYarnSummary(false));
     }
 
     @ApiOperation(value = "计算图表", notes = "计算图表")
@@ -41,7 +41,7 @@ public class YarnInformationController {
     @ApiOperation(value = "监控概览", notes = "监控概览")
     @GetMapping("/queueMetrics")
     public BiuJSONResult monitoring() {
-        List<QueueMetrics> queueMetrics = hadoopInformationService.realTimeQueueMetrics();
+        List<QueueMetrics> queueMetrics = hadoopInformationService.realTimeQueueMetrics(false);
         List<String> columns = Arrays.stream(FieldUtils.getAllFields(QueueMetrics.class))
                 .map(Field::getName).collect(Collectors.toList());
         BaseChartVO<QueueMetrics> queueMetricsBaseChartVO = BaseChartVO.<QueueMetrics>builder().columns(columns).rows(queueMetrics).build();

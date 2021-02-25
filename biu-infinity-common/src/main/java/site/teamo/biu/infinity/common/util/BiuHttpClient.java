@@ -331,7 +331,7 @@ public class BiuHttpClient {
             entity = response.getEntity();
             String result = EntityUtils.toString(response.getEntity());
             if (statusCode == 4 || statusCode == 5) {
-                throw new IOException(result);
+                throw new RuntimeException(result);
             }
             return result;
         } finally {

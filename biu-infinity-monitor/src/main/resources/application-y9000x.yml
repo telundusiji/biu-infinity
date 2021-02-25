@@ -16,6 +16,8 @@ spring:
   application:
     name: infinity-monitor
   cloud:
+    inetutils:
+      timeout-seconds: 10
     consul:
       host: localhost
       port: 8500

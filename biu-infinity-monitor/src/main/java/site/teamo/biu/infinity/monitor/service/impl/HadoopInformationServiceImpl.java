@@ -50,42 +50,7 @@ public class HadoopInformationServiceImpl implements HadoopInformationService {
     private String rmAddress;
 
     @Override
-    public void refreshHdfsSummary() {
-        try {
-            HdfsSummary hdfsSummary = realTimeHdfsSummary();
-            if (hdfsSummary == null) {
-                return;
-            }
-            hdfsSummaryMapper.insert(hdfsSummary);
-        } catch (Exception e) {
-            LOGGER.error("统计HDFS信息错误", e);
-        }
-    }
-
-    @Override
-    public void refreshYarnSummary() {
-        try {
-            YarnSummary yarnSummary = realTimeYarnSummary();
-            if (yarnSummary == null) {
-                return;
-            }
-            yarnSummaryMapper.insert(yarnSummary);
-        } catch (Exception e) {
-            LOGGER.error("统计yarn信息错误", e);
-        }
-    }
-
-    @Override
-    public void refreshQueueMetrics() {
-        List<QueueMetrics> queueMetricsList = realTimeQueueMetrics();
-        if (queueMetricsList == null || queueMetricsList.size() == 0) {
-            return;
-        }
-        queueMetricsMapper.insertList(queueMetricsList);
-    }
-
-    @Override
-    public HdfsSummary realTimeHdfsSummary() {
+    public HdfsSummary realTimeHdfsSummary(boolean isSave) {
         List<String> nameNodeUris = Arrays.asList(nnAddress.split(";"));
         if (nameNodeUris.isEmpty()) {
             return null;
@@ -113,15 +78,18 @@ public class HadoopInformationServiceImpl implements HadoopInformationService {
                     .volumeFailuresTotal(fsNameSystemState.getInteger("VolumeFailuresTotal"))
                     .createTime(new Date())
                     .build();
+            if (isSave) {
+                hdfsSummaryMapper.insert(hdfsSummary);
+            }
             return hdfsSummary;
         } catch (Exception e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("统计hdfs信息错误", e);
             return null;
         }
     }
 
     @Override
-    public YarnSummary realTimeYarnSummary() {
+    public YarnSummary realTimeYarnSummary(boolean isSave) {
         List<String> rmUris = Arrays.asList(rmAddress.split(";"));
         if (rmUris.isEmpty()) {
             return null;
@@ -156,6 +124,9 @@ public class HadoopInformationServiceImpl implements HadoopInformationService {
                     .reservedContainers(queueMetrics.getInteger("ReservedContainers"))
                     .createTime(new Date())
                     .build();
+            if (isSave) {
+                yarnSummaryMapper.insert(yarnSummary);
+            }
             return yarnSummary;
         } catch (Exception e) {
             LOGGER.error("统计yarn信息错误", e);
@@ -164,7 +135,7 @@ public class HadoopInformationServiceImpl implements HadoopInformationService {
     }
 
     @Override
-    public List<QueueMetrics> realTimeQueueMetrics() {
+    public List<QueueMetrics> realTimeQueueMetrics(boolean isSave) {
         List<QueueMetrics> queueMetricsList = new ArrayList<>();
         List<String> rmUris = Arrays.asList(rmAddress.split(";"));
         if (rmUris.isEmpty()) {
@@ -195,6 +166,9 @@ public class HadoopInformationServiceImpl implements HadoopInformationService {
                         .createTime(new Date())
                         .build();
                 queueMetricsList.add(queueMetrics);
+            }
+            if (isSave) {
+                queueMetricsMapper.insertList(queueMetricsList);
             }
             return queueMetricsList;
         } catch (Exception e) {

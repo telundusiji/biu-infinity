@@ -14,17 +14,11 @@ import java.util.List;
  */
 public interface HadoopInformationService {
 
-    void refreshHdfsSummary();
+    HdfsSummary realTimeHdfsSummary(boolean isSave);
 
-    void refreshYarnSummary();
+    YarnSummary realTimeYarnSummary(boolean isSave);
 
-    void refreshQueueMetrics();
-
-    HdfsSummary realTimeHdfsSummary();
-
-    YarnSummary realTimeYarnSummary();
-
-    List<QueueMetrics> realTimeQueueMetrics();
+    List<QueueMetrics> realTimeQueueMetrics(boolean isSave);
 
     List<HdfsSummary> findAllHdfsSummary();
 
