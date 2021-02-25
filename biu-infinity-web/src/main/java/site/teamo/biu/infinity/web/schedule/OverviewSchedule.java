@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import site.teamo.biu.infinity.web.service.OverviewService;
+import site.teamo.biu.infinity.web.service.HadoopService;
 
 /**
  * @author 爱做梦的锤子
@@ -19,7 +19,7 @@ public class OverviewSchedule {
     private static final Logger LOGGER = LoggerFactory.getLogger(OverviewSchedule.class);
 
     @Autowired
-    private OverviewService overviewService;
+    private HadoopService overviewService;
 
     /**
      * 刷新hdfs的概览信息到数据库
