@@ -1,4 +1,4 @@
-package site.teamo.biu.infinity.service.impl;
+package site.teamo.biu.infinity.web.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -8,16 +8,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import site.teamo.biu.infinity.common.constant.InfinityConstant;
-import site.teamo.biu.infinity.common.exception.InfinityException;
-import site.teamo.biu.infinity.common.util.BiuHttpClient;
-import site.teamo.biu.infinity.dao.HdfsSummaryMapper;
-import site.teamo.biu.infinity.dao.QueueMetricsMapper;
-import site.teamo.biu.infinity.dao.YarnSummaryMapper;
-import site.teamo.biu.infinity.entity.HdfsSummary;
-import site.teamo.biu.infinity.entity.QueueMetrics;
-import site.teamo.biu.infinity.entity.YarnSummary;
-import site.teamo.biu.infinity.service.OverviewService;
+import site.teamo.biu.infinity.web.common.constant.InfinityConstant;
+import site.teamo.biu.infinity.web.common.exception.InfinityException;
+import site.teamo.biu.infinity.web.common.util.BiuHttpClient;
+import site.teamo.biu.infinity.web.dao.HdfsSummaryMapper;
+import site.teamo.biu.infinity.web.dao.QueueMetricsMapper;
+import site.teamo.biu.infinity.web.dao.YarnSummaryMapper;
+import site.teamo.biu.infinity.web.entity.HdfsSummary;
+import site.teamo.biu.infinity.web.entity.QueueMetrics;
+import site.teamo.biu.infinity.web.entity.YarnSummary;
+import site.teamo.biu.infinity.web.service.OverviewService;
 
 import java.io.IOException;
 import java.util.ArrayList;

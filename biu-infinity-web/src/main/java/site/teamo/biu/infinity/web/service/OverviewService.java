@@ -1,8 +1,8 @@
-package site.teamo.biu.infinity.service;
+package site.teamo.biu.infinity.web.service;
 
-import site.teamo.biu.infinity.entity.HdfsSummary;
-import site.teamo.biu.infinity.entity.QueueMetrics;
-import site.teamo.biu.infinity.entity.YarnSummary;
+import site.teamo.biu.infinity.web.entity.HdfsSummary;
+import site.teamo.biu.infinity.web.entity.QueueMetrics;
+import site.teamo.biu.infinity.web.entity.YarnSummary;
 
 import java.util.List;
 

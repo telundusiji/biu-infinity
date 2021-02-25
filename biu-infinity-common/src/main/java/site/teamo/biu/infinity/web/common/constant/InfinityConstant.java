@@ -1,4 +1,4 @@
-package site.teamo.biu.infinity.common.constant;
+package site.teamo.biu.infinity.web.common.constant;
 
 /**
  *

@@ -1,4 +1,4 @@
-package site.teamo.biu.infinity.controller;
+package site.teamo.biu.infinity.web.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import site.teamo.biu.infinity.common.util.BiuJSONResult;
-import site.teamo.biu.infinity.entity.HdfsSummary;
-import site.teamo.biu.infinity.entity.QueueMetrics;
-import site.teamo.biu.infinity.entity.YarnSummary;
-import site.teamo.biu.infinity.entity.vo.BaseChartVO;
-import site.teamo.biu.infinity.service.OverviewService;
+import site.teamo.biu.infinity.web.common.util.BiuJSONResult;
+import site.teamo.biu.infinity.web.entity.HdfsSummary;
+import site.teamo.biu.infinity.web.entity.QueueMetrics;
+import site.teamo.biu.infinity.web.entity.YarnSummary;
+import site.teamo.biu.infinity.web.entity.vo.BaseChartVO;
+import site.teamo.biu.infinity.web.service.OverviewService;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;

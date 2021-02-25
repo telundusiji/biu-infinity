@@ -1,9 +1,8 @@
-package site.teamo.biu.infinity.common.util;
+package site.teamo.biu.infinity.web.common.util;
 
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.http.HttpStatus;
 
 /**
  * 
@@ -45,15 +44,15 @@ public class BiuJSONResult {
     }
     
     public static BiuJSONResult errorMsg(String msg) {
-        return new BiuJSONResult(HttpStatus.INTERNAL_SERVER_ERROR.value(), msg, null);
+        return new BiuJSONResult(500, msg, null);
     }
     
     public static BiuJSONResult errorMap(Object data) {
-        return new BiuJSONResult(HttpStatus.INTERNAL_SERVER_ERROR.value(), "error", data);
+        return new BiuJSONResult(500, "error", data);
     }
 
     public static BiuJSONResult errorParameter(Object data){
-        return new BiuJSONResult(HttpStatus.BAD_REQUEST.value(),"parameter error",data);
+        return new BiuJSONResult(400,"parameter error",data);
     }
 
     public BiuJSONResult(Integer status, String msg, Object data) {
@@ -63,7 +62,7 @@ public class BiuJSONResult {
     }
 
     public BiuJSONResult(Object data) {
-        this.code = HttpStatus.OK.value();
+        this.code = 200;
         this.msg = "OK";
         this.data = data;
     }

@@ -1,9 +1,9 @@
-package site.teamo.biu.infinity.dao;
+package site.teamo.biu.infinity.web.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
-import site.teamo.biu.infinity.InfinityMapper;
-import site.teamo.biu.infinity.entity.QueueMetrics;
+import site.teamo.biu.infinity.web.InfinityMapper;
+import site.teamo.biu.infinity.web.entity.QueueMetrics;
 
 @Mapper
 @Component

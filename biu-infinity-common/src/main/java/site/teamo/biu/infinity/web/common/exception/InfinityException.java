@@ -1,4 +1,4 @@
-package site.teamo.biu.infinity.common.exception;
+package site.teamo.biu.infinity.web.common.exception;
 
 /**
  * @author 爱做梦的锤子

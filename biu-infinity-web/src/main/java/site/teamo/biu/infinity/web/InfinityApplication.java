@@ -1,4 +1,4 @@
-package site.teamo.biu.infinity;
+package site.teamo.biu.infinity.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +10,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 
 @SpringBootApplication
-@MapperScan(basePackages = {"site.teamo.biu.infinity.dao"})
+@MapperScan(basePackages = {"site.teamo.biu.infinity.web.dao"})
 public class InfinityApplication {
 
     public static void main(String[] args) {

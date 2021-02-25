@@ -1,4 +1,4 @@
-package site.teamo.biu.infinity;
+package site.teamo.biu.infinity.web;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;

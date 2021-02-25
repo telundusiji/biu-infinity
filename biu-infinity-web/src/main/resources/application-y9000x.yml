@@ -4,6 +4,10 @@ server:
     context-path: /infinity
 
 infinity:
+  project:
+    version: 0.0.1
+  swagger:
+    enable: true
   hadoop:
     nn:
       uri: 192.168.56.188:50070
@@ -28,3 +32,5 @@ spring:
       pool-name: DataSourceHikariCP #连接池名称
       max-lifetime: 1800000     #连接生命时长，空闲未被使用超过最大时长则被释放
       connection-test-query: select 1
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

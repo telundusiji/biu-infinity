@@ -1,6 +1,8 @@
-package site.teamo.biu.infinity.common.util;
+package site.teamo.biu.infinity.web.common.util;
 
 import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
@@ -28,9 +30,6 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.cookie.DefaultCookieSpecProvider;
 import org.apache.http.impl.cookie.RFC6265CookieSpecProvider;
 import org.apache.http.util.EntityUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.util.StreamUtils;
 
 import java.io.*;
 import java.net.URISyntaxException;
@@ -41,9 +40,8 @@ import java.util.Map;
  * @author 爱做梦的锤子
  * @create 2020/8/5
  */
+@Slf4j
 public class BiuHttpClient {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(BiuHttpClient.class);
 
     //默认请求超时时间和会话超时时间 单位：秒
     private static final int DEFAULT_REQUEST_TIMEOUT = 15;
@@ -55,7 +53,7 @@ public class BiuHttpClient {
     private int requestTimeOut = 15;
     private int sessionTimeOut = 60;
 
-    public static BiuHttpClient getClient(){
+    public static BiuHttpClient getClient() {
         return new BiuHttpClient();
     }
 
@@ -283,7 +281,7 @@ public class BiuHttpClient {
             }
             BufferedInputStream bis = new BufferedInputStream(entity.getContent());
             BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File(filePath)));
-            StreamUtils.copy(bis, bos);
+            IOUtils.copy(bis,bos);
             bis.close();
             bos.close();
         } finally {
@@ -313,7 +311,7 @@ public class BiuHttpClient {
             try {
                 httpMethod.setURI(builder.build());
             } catch (URISyntaxException e) {
-                LOGGER.warn("封装参数到HttpGet失败", e);
+                log.warn("封装参数到HttpGet失败", e);
             }
         }
     }

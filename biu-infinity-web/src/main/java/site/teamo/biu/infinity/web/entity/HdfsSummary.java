@@ -1,4 +1,4 @@
-package site.teamo.biu.infinity.entity;
+package site.teamo.biu.infinity.web.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
