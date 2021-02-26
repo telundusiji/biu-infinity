@@ -6,7 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import tk.mybatis.spring.annotation.MapperScan;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "site.teamo.biu.infinity")
 @MapperScan(basePackages = "site.teamo.biu.infinity.monitor.dao")
 @EnableDiscoveryClient
 @EnableScheduling

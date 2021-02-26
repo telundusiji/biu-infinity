@@ -1,4 +1,4 @@
-package site.teamo.biu.infinity.monitor.config;
+package site.teamo.biu.infinity.fweb.common.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -25,13 +25,16 @@ public class SwaggerConfig {
     @Value("${infinity.project.version}")
     private String version;
 
+    @Value("${infinity.swagger.basePackage:false}")
+    private String basePackage;
+
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo())
                 .enable(swaggerEnable)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("site.teamo.biu.infinity.monitor.controller"))
+                .apis(RequestHandlerSelectors.basePackage(basePackage))
                 .paths(PathSelectors.any())
                 .build();
     }

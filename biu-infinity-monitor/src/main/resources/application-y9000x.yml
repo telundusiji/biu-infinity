@@ -6,6 +6,7 @@ infinity:
     version: 0.0.1
   swagger:
     enable: true
+    basePackage: site.teamo.biu.infinity.monitor.controller
   hadoop:
     nn:
       address: 192.168.56.188:9870/
