@@ -25,7 +25,7 @@ public class SwaggerConfig {
     @Value("${infinity.project.version}")
     private String version;
 
-    @Value("${infinity.swagger.basePackage:false}")
+    @Value("${infinity.swagger.base-package}")
     private String basePackage;
 
     @Bean
