@@ -20,6 +20,7 @@
         <module>biu-infinity-web</module>
         <module>biu-infinity-monitor</module>
         <module>biu-infinity-common-4web</module>
+        <module>biu-infinity-sql</module>
     </modules>
 
     <properties>
@@ -29,6 +30,7 @@
         <pagehelper.version>1.3.0</pagehelper.version>
         <tk.mybatis.version>2.1.5</tk.mybatis.version>
         <commons.io.version>1.3.2</commons.io.version>
+        <hive.version>3.1.2</hive.version>
     </properties>
 
     <dependencyManagement>
@@ -77,6 +79,19 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons.io.version}</version>
+            </dependency>
+
+            <!--            bigdata-->
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-jdbc</artifactId>
+                <version>${hive.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.glassfish</groupId>
+                        <artifactId>javax.el</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>
