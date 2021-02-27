@@ -37,3 +37,12 @@ Infinity 基础开发包含两块
 * 添加Infinity-monitor服务
 
 > Infinity-monitor服务用于进行服务的监控和统计，目前添加了对hdfs和yarn使用的监控和统计
+
+#### 2021.02.26
+
+今日进度
+
+* 统一Swagger配置
+* 添加Infinity-sql服务
+
+> 主要用于提供Sql服务的相关接口，目前打算接入Hive Sql，Spark Sql，Flink Sql三种Sql
