@@ -75,6 +75,7 @@ public class BiuJSONResult<T> {
         private int pageSize;
         private int pageNo;
         private List<E> list;
+        private List<String> schema;
 
         public BiuJSONResult<PageData<E>> buildJSONResult() {
             return BiuJSONResult.<PageData<E>>builder()

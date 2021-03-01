@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8083
 
 infinity:
   project:
@@ -15,13 +15,13 @@ infinity:
   hive:
     jdbc:
       driver-class-name: org.apache.hive.jdbc.HiveDriver
-      url: jdbc:hive2://192.168.31.243:10000/default
+      url: jdbc:hive2://192.168.56.188:10000
       username: root
       password:
 
 spring:
   application:
-    name: infinity-web
+    name: infinity-sql
   cloud:
     consul:
       host: localhost
@@ -31,7 +31,7 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://localhost:3306/infinity?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/infinity_sql?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     schema: classpath:schema.sql
     initialization-mode: always
@@ -45,5 +45,6 @@ spring:
       pool-name: DataSourceHikariCP #连接池名称
       max-lifetime: 1800000     #连接生命时长，空闲未被使用超过最大时长则被释放
       connection-test-query: select 1
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml

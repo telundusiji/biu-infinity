@@ -1,0 +1,9 @@
+POST localhost:8083/query/sql
+Content-Type: application/json
+
+{
+  "sql": "select id,name from default.test",
+  "type": "HIVE",
+  "pageSize": "10",
+  "pageNo": "1"
+}
