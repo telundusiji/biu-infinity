@@ -16,7 +16,7 @@ public interface QueryService {
      *
      * @return
      */
-    List<String> database(SqlEngineType engine);
+    List<String> database(SqlEngineType engine) throws SQLException;
 
     /**
      * 查询数据库下的表
@@ -25,7 +25,7 @@ public interface QueryService {
      * @param database
      * @return
      */
-    List<String> table(SqlEngineType engine, String database);
+    List<String> table(SqlEngineType engine, String database) throws SQLException;
 
     /**
      * 查询表的字段信息
@@ -35,7 +35,7 @@ public interface QueryService {
      * @param table
      * @return
      */
-    Map<String, String> schema(SqlEngineType engine, String database, String table);
+    Map<String, String> schema(SqlEngineType engine, String database, String table) throws SQLException;
 
     /**
      * sql查询
@@ -46,5 +46,5 @@ public interface QueryService {
      * @param pageNo
      * @return
      */
-    Tuple2<String, SqlVO> sql(String sql, SqlEngineType engine, int pageSize, int pageNo) throws SQLException;
+    Tuple2<String, SqlVO> sql(String sql, SqlEngineType engine, int pageNo, int pageSize) throws SQLException;
 }

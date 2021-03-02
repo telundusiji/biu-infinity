@@ -7,6 +7,7 @@
         -->
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="sql_content" property="sqlContent" jdbcType="VARCHAR"/>
+        <result column="sql_md5" property="sqlMd5" jdbcType="VARCHAR"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
         <result column="start_time" property="startTime" jdbcType="BIGINT"/>
         <result column="cost_time" property="costTime" jdbcType="BIGINT"/>

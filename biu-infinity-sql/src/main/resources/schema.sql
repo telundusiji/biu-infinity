@@ -1,8 +1,9 @@
-DROP table if exists sql_history;
+DROP TABLE IF EXISTS sql_history;
 CREATE TABLE IF NOT EXISTS sql_history
 (
     id           BIGINT NOT NULL AUTO_INCREMENT COMMENT 'id',
     sql_content  TEXT COMMENT 'sql内容',
+    sql_md5      VARCHAR(128) COMMENT 'sql md5',
     status       VARCHAR(128) COMMENT 'Sql的执行状态',
     start_time   BIGINT COMMENT '执行开始时间',
     cost_time    BIGINT COMMENT '执行时间',

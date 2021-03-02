@@ -28,6 +28,12 @@ public class SqlHistory {
     private String sqlContent;
 
     /**
+     * sql的md5转换字符
+     */
+    @Column(name = "sql_md5")
+    private String sqlMd5;
+
+    /**
      * sql的执行状态
      */
     @Column(name = "status")
@@ -52,7 +58,7 @@ public class SqlHistory {
     private String queryEngine;
 
     /**
-     * total_files
+     * 记录创建时间
      */
     @Column(name = "create_time")
     private Long createTime;

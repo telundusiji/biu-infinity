@@ -13,6 +13,4 @@ import site.teamo.biu.infinity.sql.util.SqlEngineType;
 public class SqlBO {
     private String sql;
     private SqlEngineType type;
-    private int pageSize;
-    private int pageNo;
 }

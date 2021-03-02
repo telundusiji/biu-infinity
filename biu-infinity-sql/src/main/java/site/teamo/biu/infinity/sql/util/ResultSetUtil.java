@@ -21,6 +21,10 @@ public class ResultSetUtil {
 
     public static Tuple2<Integer, List<List<String>>> readData(ResultSet resultSet, int num) throws SQLException {
         List<List<String>> list = new ArrayList<>();
+        return readData(resultSet, num, list);
+    }
+
+    public static Tuple2<Integer, List<List<String>>> readData(ResultSet resultSet, int num, List<List<String>> list) throws SQLException {
         int tempCounter = 0;
         while (resultSet.next() && tempCounter < num) {
             List<String> row = new ArrayList<>();
@@ -33,7 +37,12 @@ public class ResultSetUtil {
         return Tuple2.of(tempCounter, list);
     }
 
+
     public static Tuple2<Integer, List<List<String>>> readData(ResultSet resultSet) throws SQLException {
         return readData(resultSet, Integer.MAX_VALUE);
+    }
+
+    public static Tuple2<Integer, List<List<String>>> readData(ResultSet resultSet, List<List<String>> list) throws SQLException {
+        return readData(resultSet, Integer.MAX_VALUE, list);
     }
 }
