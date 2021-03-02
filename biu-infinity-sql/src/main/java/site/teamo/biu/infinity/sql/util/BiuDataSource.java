@@ -31,6 +31,7 @@ public class BiuDataSource {
         GenericObjectPoolConfig config = new GenericObjectPoolConfig();
         config.setMaxTotal(10);
         config.setMaxIdle(3);
+        config.setMinIdle(1);
         pool = new GenericObjectPool<>(new PoolFactory(), config);
         return this;
     }

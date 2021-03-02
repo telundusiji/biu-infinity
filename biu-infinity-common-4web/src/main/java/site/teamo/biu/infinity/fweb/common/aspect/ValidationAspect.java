@@ -26,7 +26,6 @@ import java.util.stream.Collectors;
 @Component
 @Aspect
 @Slf4j
-@Order(1)
 public class ValidationAspect {
 
     /**

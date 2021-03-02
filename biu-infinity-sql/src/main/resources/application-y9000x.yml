@@ -4,6 +4,7 @@ server:
 infinity:
   project:
     version: 0.0.1
+    debug: true
   swagger:
     enable: true
     base-package: site.teamo.biu.infinity.sql.controller

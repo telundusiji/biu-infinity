@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import site.teamo.biu.infinity.common.util.Tuple2;
+import site.teamo.biu.infinity.fweb.common.annoation.Validation;
 import site.teamo.biu.infinity.fweb.common.util.BiuJSONResult;
 import site.teamo.biu.infinity.sql.entity.bo.SqlBO;
 import site.teamo.biu.infinity.sql.entity.vo.SchemaVO;
@@ -27,18 +28,36 @@ public class QueryController {
     @Autowired
     private QueryService queryService;
 
+    @ApiOperation("查询数据库信息")
     @GetMapping("/database")
-    public BiuJSONResult database(@RequestParam String engine) throws SQLException {
+    @Validation
+    public BiuJSONResult database(
+            @ApiParam("源类型")
+            @RequestParam String engine) throws SQLException {
         return BiuJSONResult.ok(queryService.database(SqlEngineType.valueOf(engine)));
     }
 
+    @ApiOperation("查询表信息")
     @GetMapping("/table")
-    public BiuJSONResult table(@RequestParam String engine, @RequestParam String database) throws SQLException {
+    @Validation
+    public BiuJSONResult table(
+            @ApiParam("源类型")
+            @RequestParam String engine,
+            @ApiParam("数据库名称")
+            @RequestParam String database) throws SQLException {
         return BiuJSONResult.ok(queryService.table(SqlEngineType.valueOf(engine), database));
     }
 
+    @ApiOperation("查询表结构")
     @GetMapping("/schema")
-    public BiuJSONResult schema(@RequestParam String engine, @RequestParam String database, @RequestParam String table) throws SQLException {
+    @Validation
+    public BiuJSONResult schema(
+            @ApiParam("源类型")
+            @RequestParam String engine,
+            @ApiParam("数据库名称")
+            @RequestParam String database,
+            @ApiParam("表名称")
+            @RequestParam String table) throws SQLException {
         Map<String, String> schema = queryService.schema(SqlEngineType.valueOf(engine), database, table);
         return BiuJSONResult.ok(
                 SchemaVO.builder()
@@ -46,28 +65,28 @@ public class QueryController {
                         .fields(
                                 schema.entrySet()
                                         .stream()
-                                        .map(entry -> SchemaVO.Field.builder().build())
+                                        .map(entry -> SchemaVO.Field.builder()
+                                                .name(entry.getKey())
+                                                .type(entry.getValue())
+                                                .build())
                                         .collect(Collectors.toList())
                         )
                         .build()
         );
     }
 
-    @ApiOperation("sql query")
+    @ApiOperation("Sql执行")
     @PostMapping(value = "/sql")
+    @Validation
     public BiuJSONResult sql(
-            @RequestParam(defaultValue = "1", required = false)
-            @Min(value = 1, message = "PageNo must be greater than or equal to 1")
             @ApiParam(value = "页码", example = "1")
-                    Integer pageNo,
-            @RequestParam(defaultValue = "10", required = false)
-            @Range(min = 5, max = 1000, message = "PageSize must be greater than or equal to 5 and less than or equal to 1000")
+            @Min(value = 1, message = "PageNo must be greater than or equal to 1")
+            @RequestParam(defaultValue = "1", required = false) Integer pageNo,
             @ApiParam(value = "页面大小", example = "10")
-                    Integer pageSize,
-            @RequestBody
-                    SqlBO sqlBo) throws
-
-            SQLException {
+            @Range(min = 5, max = 1000, message = "PageSize must be greater than or equal to 5 and less than or equal to 1000")
+            @RequestParam(defaultValue = "10", required = false) Integer pageSize,
+            @ApiParam("Sql执行BO")
+            @RequestBody SqlBO sqlBo) throws SQLException {
         Tuple2<String, SqlVO> sql = queryService.sql(sqlBo.getSql(), sqlBo.getType(), pageNo, pageSize);
         return BiuJSONResult.ok(sql._2);
     }
