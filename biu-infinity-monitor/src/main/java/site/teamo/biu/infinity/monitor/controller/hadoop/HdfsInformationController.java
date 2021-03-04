@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import site.teamo.biu.infinity.fweb.common.entity.HdfsSummary;
+import site.teamo.biu.infinity.fweb.common.entity.monitor.HdfsSummary;
 import site.teamo.biu.infinity.fweb.common.entity.vo.BaseChartVO;
 import site.teamo.biu.infinity.fweb.common.util.BiuJSONResult;
 import site.teamo.biu.infinity.monitor.service.HadoopInformationService;

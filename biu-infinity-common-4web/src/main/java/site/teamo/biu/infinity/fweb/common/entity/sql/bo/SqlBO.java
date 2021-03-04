@@ -1,10 +1,10 @@
-package site.teamo.biu.infinity.sql.entity.bo;
+package site.teamo.biu.infinity.fweb.common.entity.sql.bo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import site.teamo.biu.infinity.sql.util.SqlEngineType;
+import site.teamo.biu.infinity.fweb.common.util.SqlEngineType;
 
 @Data
 @NoArgsConstructor

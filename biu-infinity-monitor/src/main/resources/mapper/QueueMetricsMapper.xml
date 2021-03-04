@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="site.teamo.biu.infinity.monitor.dao.QueueMetricsMapper" >
-  <resultMap id="BaseResultMap" type="site.teamo.biu.infinity.fweb.common.entity.QueueMetrics" >
+  <resultMap id="BaseResultMap" type="site.teamo.biu.infinity.fweb.common.entity.monitor.QueueMetrics" >
     <!--
       WARNING - @mbg.generated
     -->

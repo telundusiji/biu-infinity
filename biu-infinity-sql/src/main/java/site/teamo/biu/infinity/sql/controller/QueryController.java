@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import site.teamo.biu.infinity.common.util.Tuple2;
 import site.teamo.biu.infinity.fweb.common.annoation.Validation;
 import site.teamo.biu.infinity.fweb.common.util.BiuJSONResult;
-import site.teamo.biu.infinity.sql.entity.bo.SqlBO;
-import site.teamo.biu.infinity.sql.entity.vo.SchemaVO;
-import site.teamo.biu.infinity.sql.entity.vo.SqlVO;
+import site.teamo.biu.infinity.fweb.common.entity.sql.bo.SqlBO;
+import site.teamo.biu.infinity.fweb.common.entity.sql.vo.SchemaVO;
+import site.teamo.biu.infinity.fweb.common.entity.sql.vo.SqlVO;
 import site.teamo.biu.infinity.sql.service.QueryService;
-import site.teamo.biu.infinity.sql.util.SqlEngineType;
+import site.teamo.biu.infinity.fweb.common.util.SqlEngineType;
 
 import javax.validation.constraints.Min;
 import java.sql.SQLException;

@@ -4,14 +4,10 @@ server:
 infinity:
   project:
     version: 0.0.1
+    debug: true
   swagger:
     enable: true
-  hadoop:
-    nn:
-      uri: 192.168.56.188:50070
-    rm:
-      uri: 192.168.56.188:8088
-
+    base-package: site.teamo.biu.infinity.web.controller
 spring:
   application:
     name: infinity-web
@@ -21,22 +17,10 @@ spring:
       port: 8500
       config:
         enabled: true
-  datasource:
-    username: root
-    password: 123456
-    url: jdbc:mysql://localhost:3306/infinity?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    schema: classpath:schema.sql
-    initialization-mode: always
-    type: com.zaxxer.hikari.HikariDataSource
-    hikari:
-      connection-timeout: 30000 # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认:30秒
-      minimum-idle: 5           #最小连接数
-      maximum-pool-size: 20     #最大连接数
-      auto-commit: true         #事务自动提交
-      idle-timeout: 600000      #连接超时的最大时长（毫秒），超时则被释放（retired）
-      pool-name: DataSourceHikariCP #连接池名称
-      max-lifetime: 1800000     #连接生命时长，空闲未被使用超过最大时长则被释放
-      connection-test-query: select 1
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
+
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 5000
+        read-timeout: 30000

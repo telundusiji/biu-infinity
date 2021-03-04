@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="site.teamo.biu.infinity.sql.dao.SqlHistoryMapper">
-    <resultMap id="BaseResultMap" type="site.teamo.biu.infinity.fweb.common.entity.SqlHistory">
+    <resultMap id="BaseResultMap" type="site.teamo.biu.infinity.fweb.common.entity.sql.SqlHistory">
         <!--
           WARNING - @mbg.generated
         -->

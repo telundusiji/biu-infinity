@@ -2,9 +2,9 @@ package site.teamo.biu.infinity.monitor.service;
 
 
 
-import site.teamo.biu.infinity.fweb.common.entity.HdfsSummary;
-import site.teamo.biu.infinity.fweb.common.entity.QueueMetrics;
-import site.teamo.biu.infinity.fweb.common.entity.YarnSummary;
+import site.teamo.biu.infinity.fweb.common.entity.monitor.HdfsSummary;
+import site.teamo.biu.infinity.fweb.common.entity.monitor.QueueMetrics;
+import site.teamo.biu.infinity.fweb.common.entity.monitor.YarnSummary;
 
 import java.util.List;
 

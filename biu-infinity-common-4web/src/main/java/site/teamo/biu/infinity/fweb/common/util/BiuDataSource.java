@@ -1,4 +1,4 @@
-package site.teamo.biu.infinity.sql.util;
+package site.teamo.biu.infinity.fweb.common.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

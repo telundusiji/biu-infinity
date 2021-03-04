@@ -1,9 +1,8 @@
 package site.teamo.biu.infinity.sql.service;
 
-import com.github.pagehelper.PageInfo;
 import site.teamo.biu.infinity.common.util.Tuple2;
-import site.teamo.biu.infinity.sql.entity.vo.SqlVO;
-import site.teamo.biu.infinity.sql.util.SqlEngineType;
+import site.teamo.biu.infinity.fweb.common.entity.sql.vo.SqlVO;
+import site.teamo.biu.infinity.fweb.common.util.SqlEngineType;
 
 import java.sql.SQLException;
 import java.util.List;

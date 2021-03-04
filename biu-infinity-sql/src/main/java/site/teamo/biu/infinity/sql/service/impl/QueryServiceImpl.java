@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 import site.teamo.biu.infinity.common.util.MD5Util;
 import site.teamo.biu.infinity.common.util.Tuple2;
 import site.teamo.biu.infinity.common.util.Tuple3;
-import site.teamo.biu.infinity.fweb.common.entity.SqlHistory;
+import site.teamo.biu.infinity.fweb.common.entity.sql.SqlHistory;
 import site.teamo.biu.infinity.sql.dao.SqlHistoryMapper;
-import site.teamo.biu.infinity.sql.entity.vo.SqlVO;
+import site.teamo.biu.infinity.fweb.common.entity.sql.vo.SqlVO;
 import site.teamo.biu.infinity.sql.service.QueryService;
 import site.teamo.biu.infinity.sql.util.QueryCacheUtil;
 import site.teamo.biu.infinity.sql.util.ResultSetUtil;
-import site.teamo.biu.infinity.sql.util.SqlEngineType;
+import site.teamo.biu.infinity.fweb.common.util.SqlEngineType;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
