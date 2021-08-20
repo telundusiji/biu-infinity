@@ -16,11 +16,13 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>biu-infinity-common</module>
+        <module>common/biu-infinity-common</module>
         <module>biu-infinity-web</module>
         <module>biu-infinity-monitor</module>
-        <module>biu-infinity-common-4web</module>
+        <module>common/biu-infinity-common-4web</module>
         <module>biu-infinity-sql</module>
+        <module>connection/biu-infinity-connection</module>
+        <module>connection/biu-infinity-connection-sdk</module>
     </modules>
 
     <properties>

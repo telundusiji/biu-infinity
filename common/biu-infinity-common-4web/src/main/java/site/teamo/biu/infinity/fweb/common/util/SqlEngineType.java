@@ -1,8 +1,5 @@
 package site.teamo.biu.infinity.fweb.common.util;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-import site.teamo.biu.infinity.fweb.common.util.ApplicationContextUtil;
-
 public enum SqlEngineType {
     HIVE,
     SPARK,

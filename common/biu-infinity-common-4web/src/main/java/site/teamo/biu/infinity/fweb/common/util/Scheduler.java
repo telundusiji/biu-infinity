@@ -3,10 +3,8 @@ package site.teamo.biu.infinity.fweb.common.util;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.scheduling.support.CronTrigger;
-import org.springframework.stereotype.Component;
 import site.teamo.biu.infinity.common.constant.InfinityConstant;
 import site.teamo.biu.infinity.common.exception.ErrorCode;
 
