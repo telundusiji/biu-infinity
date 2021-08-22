@@ -16,7 +16,7 @@ import java.util.List;
  * @param <ED>   实例数据泛型
  * @param <INFO> 操作结果信息
  */
-public interface MetadataOperator<NAME, CR, UR, ED, INFO> {
+public interface MetadataOperator<NAME, CR, UR, EDR, ED, INFO> {
     boolean create(NAME name, CR cr);
 
     boolean delete(NAME name);
@@ -31,5 +31,5 @@ public interface MetadataOperator<NAME, CR, UR, ED, INFO> {
 
     boolean exist(NAME name);
 
-    ED exampleData(NAME name, int number);
+    ED exampleData(NAME name, EDR edr);
 }

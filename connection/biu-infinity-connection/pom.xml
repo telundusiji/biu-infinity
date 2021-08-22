@@ -11,10 +11,38 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>biu-infinity-connection</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>biu-infinity-connection-jdbc</module>
+        <module>biu-infinity-connection-mysql8025</module>
+        <module>biu-infinity-connection-taos2030</module>
+        <module>biu-infinity-connection-es7</module>
+        <module>biu-infinity-connection-api</module>
+        <module>biu-infinity-connection-kafka280</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>site.teamo.biu</groupId>
+            <artifactId>biu-infinity-connection-sdk</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>
