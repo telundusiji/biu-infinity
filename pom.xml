@@ -23,6 +23,7 @@
         <module>biu-infinity-sql</module>
         <module>connection/biu-infinity-connection</module>
         <module>connection/biu-infinity-connection-sdk</module>
+        <module>common/biu-infinity-common-4api</module>
     </modules>
 
     <properties>
