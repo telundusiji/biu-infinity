@@ -5,5 +5,5 @@ package site.teamo.biu.infinity.connection.sdk.entity;
  * @Date: 2021/8/22 12:54
  * @Description:
  */
-public class Dataset {
+public class DataSet {
 }

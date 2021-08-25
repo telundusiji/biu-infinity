@@ -23,6 +23,8 @@
         <module>biu-infinity-sql</module>
         <module>connection/biu-infinity-connection</module>
         <module>connection/biu-infinity-connection-sdk</module>
+        <module>data-source-manager/biu-infinity-data-source-manager</module>
+        <module>data-source-manager/biu-infinity-data-source-manager-api</module>
     </modules>
 
     <properties>

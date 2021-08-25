@@ -1,6 +1,6 @@
 package site.teamo.biu.infinity.connection.sdk.core;
 
-import site.teamo.biu.infinity.connection.sdk.entity.Dataset;
+import site.teamo.biu.infinity.connection.sdk.entity.DataSet;
 
 /**
  * @Created: 爱做梦的锤子
@@ -8,5 +8,5 @@ import site.teamo.biu.infinity.connection.sdk.entity.Dataset;
  * @Description:
  */
 public interface Info {
-    Dataset toDataset();
+    DataSet toDataset();
 }

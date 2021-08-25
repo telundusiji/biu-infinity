@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+infinity:
+  project:
+    version: 0.0.1
+    debug: true
+  swagger:
+    enable: true
+    base-package: site.teamo.biu.infinity.data.source.manager.controller
+spring:
+  application:
+    name: infinity-data-source-manager
+#  cloud:
+#    consul:
+#      host: localhost
+#      port: 8500
+#      config:
+#        enabled: true
+
+#feign:
+#  client:
+#    config:
+#      default:
+#        connect-timeout: 5000
+#        read-timeout: 30000
