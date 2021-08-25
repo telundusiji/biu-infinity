@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import site.teamo.biu.infinity.fapi.common.BiuJSONResult;
 import site.teamo.biu.infinity.fweb.common.entity.monitor.HdfsSummary;
 import site.teamo.biu.infinity.fweb.common.entity.vo.BaseChartVO;
-import site.teamo.biu.infinity.fweb.common.util.BiuJSONResult;
+import site.teamo.biu.infinity.fweb.common.util.BiuJSONResultUtil;
 import site.teamo.biu.infinity.monitor.service.HadoopInformationService;
 
 import java.lang.reflect.Field;
@@ -29,7 +30,7 @@ public class HdfsInformationController {
     @ApiOperation(value = "存储概览", notes = "存储概览")
     @GetMapping("/storage")
     public BiuJSONResult storage() {
-        return BiuJSONResult.ok(hadoopInformationService.realTimeHdfsSummary(false));
+        return BiuJSONResultUtil.ok(hadoopInformationService.realTimeHdfsSummary(false));
     }
 
     @ApiOperation(value = "存储图表", notes = "存储图表")
@@ -39,6 +40,6 @@ public class HdfsInformationController {
         List<String> columns = Arrays.stream(FieldUtils.getAllFields(HdfsSummary.class))
                 .map(Field::getName).collect(Collectors.toList());
         BaseChartVO<HdfsSummary> hdfsSummaryBaseChartVO = BaseChartVO.<HdfsSummary>builder().columns(columns).rows(hdfsSummaryList).build();
-        return BiuJSONResult.ok(hdfsSummaryBaseChartVO);
+        return BiuJSONResultUtil.ok(hdfsSummaryBaseChartVO);
     }
 }

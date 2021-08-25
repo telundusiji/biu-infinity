@@ -7,11 +7,12 @@ import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import site.teamo.biu.infinity.common.util.Tuple2;
+import site.teamo.biu.infinity.fapi.common.BiuJSONResult;
 import site.teamo.biu.infinity.fweb.common.annoation.Validation;
-import site.teamo.biu.infinity.fweb.common.util.BiuJSONResult;
 import site.teamo.biu.infinity.fweb.common.entity.sql.bo.SqlBO;
 import site.teamo.biu.infinity.fweb.common.entity.sql.vo.SchemaVO;
 import site.teamo.biu.infinity.fweb.common.entity.sql.vo.SqlVO;
+import site.teamo.biu.infinity.fweb.common.util.BiuJSONResultUtil;
 import site.teamo.biu.infinity.sql.service.QueryService;
 import site.teamo.biu.infinity.fweb.common.util.SqlEngineType;
 
@@ -34,7 +35,7 @@ public class QueryController {
     public BiuJSONResult database(
             @ApiParam("源类型")
             @RequestParam String engine) throws SQLException {
-        return BiuJSONResult.ok(queryService.database(SqlEngineType.valueOf(engine)));
+        return BiuJSONResultUtil.ok(queryService.database(SqlEngineType.valueOf(engine)));
     }
 
     @ApiOperation("查询表信息")
@@ -45,7 +46,7 @@ public class QueryController {
             @RequestParam String engine,
             @ApiParam("数据库名称")
             @RequestParam String database) throws SQLException {
-        return BiuJSONResult.ok(queryService.table(SqlEngineType.valueOf(engine), database));
+        return BiuJSONResultUtil.ok(queryService.table(SqlEngineType.valueOf(engine), database));
     }
 
     @ApiOperation("查询表结构")
@@ -59,7 +60,7 @@ public class QueryController {
             @ApiParam("表名称")
             @RequestParam String table) throws SQLException {
         Map<String, String> schema = queryService.schema(SqlEngineType.valueOf(engine), database, table);
-        return BiuJSONResult.ok(
+        return BiuJSONResultUtil.ok(
                 SchemaVO.builder()
                         .total(schema.entrySet().size())
                         .fields(
@@ -88,6 +89,6 @@ public class QueryController {
             @ApiParam("Sql执行BO")
             @RequestBody SqlBO sqlBo) throws SQLException {
         Tuple2<String, SqlVO> sql = queryService.sql(sqlBo.getSql(), sqlBo.getType(), pageNo, pageSize);
-        return BiuJSONResult.ok(sql._2);
+        return BiuJSONResultUtil.ok(sql._2);
     }
 }

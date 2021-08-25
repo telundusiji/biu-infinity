@@ -3,12 +3,13 @@ package site.teamo.biu.infinity.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import site.teamo.biu.infinity.fapi.common.BiuJSONResult;
 import site.teamo.biu.infinity.fweb.common.entity.sql.bo.SqlBO;
 import site.teamo.biu.infinity.fweb.common.entity.sql.vo.SqlVO;
 import site.teamo.biu.infinity.fweb.common.entity.web.bo.SqlQueryBO;
 import site.teamo.biu.infinity.fweb.common.entity.web.vo.SqlQueryVO;
 import site.teamo.biu.infinity.fweb.common.entity.web.vo.TreeNodeVO;
-import site.teamo.biu.infinity.fweb.common.util.BiuJSONResult;
+import site.teamo.biu.infinity.fweb.common.util.BiuJSONResultUtil;
 import site.teamo.biu.infinity.fweb.common.util.SqlEngineType;
 import site.teamo.biu.infinity.web.service.SqlService;
 
@@ -35,7 +36,7 @@ public class SqlController {
                 .children(buildDatabaseInfo(SqlEngineType.HIVE))
                 .build());
 
-        return BiuJSONResult.ok(info);
+        return BiuJSONResultUtil.ok(info);
     }
 
     @PostMapping(value = "/query",
@@ -60,7 +61,7 @@ public class SqlController {
                 })
                 .collect(Collectors.toList());
 
-        return BiuJSONResult.ok(SqlQueryVO.builder()
+        return BiuJSONResultUtil.ok(SqlQueryVO.builder()
                 .count(sqlVO.getTotal())
                 .pageNo(sqlVO.getPageNo())
                 .pageSize(sqlVO.getPageSize())

@@ -66,6 +66,12 @@
         </dependency>
 
         <dependency>
+            <groupId>site.teamo.biu</groupId>
+            <artifactId>biu-infinity-common-4api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
