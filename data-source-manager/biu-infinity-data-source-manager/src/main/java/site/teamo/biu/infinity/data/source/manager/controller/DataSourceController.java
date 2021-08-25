@@ -2,7 +2,7 @@ package site.teamo.biu.infinity.data.source.manager.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import site.teamo.biu.infinity.fweb.common.util.BiuJSONResult;
+import site.teamo.biu.infinity.fapi.common.BiuJSONResult;
 
 /**
  * @author haocongshun

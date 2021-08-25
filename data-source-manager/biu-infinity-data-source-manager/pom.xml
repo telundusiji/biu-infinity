@@ -26,6 +26,11 @@
             <artifactId>biu-infinity-common-4web</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>site.teamo.biu</groupId>
+            <artifactId>biu-infinity-data-source-manager-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
